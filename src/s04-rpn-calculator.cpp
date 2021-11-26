@@ -113,6 +113,18 @@ auto make_args(int argc, char* argv[]) -> std::vector<std::string>
     std::copy_n(argv, argc, std::back_inserter(args));
     return args;
 }
+auto evaluate_miejscezerowe(std::stack<double>& stack) -> void
+{
+    if (stack.size() < 2) {
+        throw std::logic_error{"not enough operands for +"};
+    }
+    auto const b = pop_top(stack);
+    auto const a = pop_top(stack);
+    stack.push(-1*b/a);
+}
+
+
+
 
 
 
@@ -143,7 +155,9 @@ auto main(int argc, char *argv[]) -> int
                 evaluate_sqrt(stack);
             } else if (each == "log10") {
                 evaluate_log(stack);
-            } 
+            } else if (each == "m.z"){
+                evaluate_miejscezerowe(stack);
+            }
             else {
                 stack.push(std::stod(each));
             }
