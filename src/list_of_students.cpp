@@ -71,32 +71,5 @@ int main()
                 break;
         }
     }    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // int i = 0;
-    // while(i<4)
-    // {
-    //     std::string imie, nazwisko, indeks;
-
-    //     int semestr;
-    //     float srednia;
-    //     std::cin>>imie>>nazwisko>>indeks>>semestr>>srednia;
-    //     listastudentow.push_back(Student{imie,nazwisko,indeks,semestr,srednia});
-    //     i++;
-    // }
-    // for(int i=0;i<listastudentow.size();i++)
-    // {
-    //     std::cout<<listastudentow[i].to_string()<<std::endl;
-    // }
 } 
 
