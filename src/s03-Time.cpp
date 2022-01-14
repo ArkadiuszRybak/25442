@@ -61,7 +61,7 @@ struct Time
         }
         else
         {
-            minuta++;
+            sekunda++;
         }
     }
     auto time_of_day()->time_of_day_
@@ -125,25 +125,25 @@ struct Time
     }
     auto time_to_midnight() const -> Time {
         Time time_to_mn(0,0,0);
-        if(time_to_mn.sekunda > 0)
+        if(sekunda>0)
         {
             time_to_mn.sekunda = 60 - sekunda;
             time_to_mn.minuta = 59 - minuta;
+            time_to_mn.godzina = 23 - godzina; 
+        }       
+        else if(minuta>0)
+        {
+            time_to_mn.minuta = 60 - minuta;
+            time_to_mn.godzina = 23 - godzina;
         }
         else
-            time_to_mn.minuta = 60 - minuta;
-
-        if(time_to_mn.minuta > 0)
-            time_to_mn.godzina = 23 - godzina;
-        else
-            time_to_mn.minuta = 24 - godzina;
-
+            time_to_mn.godzina = 24 - godzina;
         return time_to_mn;
     }
 };
 auto main()->int
 {
-    auto czas1=Time(12,59,59);
+    auto czas1=Time(11,22,56);
     std::cout<<czas1.to_string()<<std::endl;
     czas1.next_second();
     std::cout<<czas1.to_string()<<std::endl;
